@@ -16,8 +16,14 @@ security:
         main:
             pattern: ^/
             anonymous: ~
-            http_basic: ~
+#            http_basic: ~
+            form_login:
+                login_path: homepage
+                check_path: homepage
             provider: db_provider
+            logout:
+                path: /logout
+                target: homepage
 
             # activate different ways to authenticate
 
