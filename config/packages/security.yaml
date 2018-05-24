@@ -1,29 +1,13 @@
 security:
-    encoders:
-        App\Entity\Seller:
-            algorithm: bcrypt
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        #in_memory: { memory: ~ }
-        db_provider:
-            entity:
-                class: App\Entity\Seller
-                property: username
+        in_memory: { memory: ~ }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            pattern: ^/
-            anonymous: ~
-#            http_basic: ~
-            form_login:
-                login_path: homepage
-                check_path: homepage
-            provider: db_provider
-            logout:
-                path: /logout
-                target: homepage
+            anonymous: true
 
             # activate different ways to authenticate
 
@@ -37,5 +21,4 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/customer, roles: ROLE_CUSTOMER }
-        - { path: ^/seller, roles: ROLE_SELLER }
+        # - { path: ^/profile, roles: ROLE_USER }

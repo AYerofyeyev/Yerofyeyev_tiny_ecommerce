@@ -1,1 +1,0 @@
-# Yerofyeyev_tiny_ecommerce
